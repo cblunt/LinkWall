@@ -1,14 +1,19 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>LinkWall</title>
-  <%= stylesheet_link_tag :all %>
-  <%= javascript_include_tag :defaults %>
-  <%= csrf_meta_tag %>
-</head>
-<body>
+  <head>
+    <title>LinkWall</title>
+    <%= stylesheet_link_tag :all %>
+    <%= javascript_include_tag :defaults %>
+    <%= csrf_meta_tag %>
+  </head>
 
-<%= yield %>
+  <body>
+    <header>
+      <h1>LinkWall</h1> 
+    </header>
 
-</body>
+    <div id="page">
+      <%= yield %>
+    </div>
+  </body>
 </html>

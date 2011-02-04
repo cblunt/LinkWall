@@ -1,4 +1,6 @@
 LinkWall::Application.routes.draw do
+  root :to => 'links#index'
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
