@@ -1,0 +1,10 @@
+.bundle
+db/*.sqlite3
+log/*.log
+tmp/**/*
+config/database.yml
+coverage/
+coverage/**/*
+tmp/restart.txt
+uploads
+.sass-cache
