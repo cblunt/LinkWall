@@ -8,10 +8,12 @@ gem 'bson_ext', '~> 1.2'
 gem 'omniauth'
 
 group :development, :test do
+  gem 'shoulda-matchers'
   gem 'factory_girl'
   gem 'mocha'
   gem 'rspec-rails'
   gem 'rcov'
+  gem 'yard'
 end
 
 # Bundle edge Rails instead:

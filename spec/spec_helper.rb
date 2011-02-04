@@ -24,4 +24,14 @@ RSpec.configure do |config|
   # examples within a transaction, remove the following line or assign false
   # instead of true.
   config.use_transactional_fixtures = true
+
+  # Mongoid doesn't support transactions, so clean up the database after
+  # a suite has run.
+  #
+  # @see http://mongoid.org/docs/integration/
+  config.after :suite do
+    Mongoid.master.collections.select do |collection|
+      collection.name !~ /system/
+    end.each(&:drop)
+  end
 end
