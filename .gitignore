@@ -8,3 +8,6 @@ coverage/**/*
 tmp/restart.txt
 uploads
 .sass-cache
+doc/*
+doc/**/*
+.yardoc/

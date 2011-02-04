@@ -11,7 +11,9 @@ group :development, :test do
   gem 'factory_girl'
   gem 'mocha'
   gem 'rspec-rails'
+  gem 'shoulda'
   gem 'rcov'
+  gem 'yard'
 end
 
 # Bundle edge Rails instead:
