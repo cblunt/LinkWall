@@ -7,6 +7,8 @@ gem 'bson_ext', '~> 1.2'
 
 gem 'omniauth'
 
+gem 'haml-rails'
+
 group :development, :test do
   gem 'factory_girl'
   gem 'mocha'
