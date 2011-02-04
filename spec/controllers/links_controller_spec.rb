@@ -2,14 +2,20 @@ require 'spec_helper'
 
 describe LinksController do
   describe "GET 'index'" do
-    before do
-      get :index
+    describe 'in general' do
+      before do
+        get :index
+      end
+
+      it { should assign_to(:links) }
+      it { should respond_with(:success) }
+      it { should render_template(:index) }
+      it { should_not set_the_flash }
     end
 
-    it { should assign_to(:links) }
-    it { should respond_with(:success) }
-    it { should render_template(:index) }
-    it { should_not set_the_flash }
+    describe 'ownership' do
+      pending 'should only fetch links owned by the current user'
+    end
   end
 
   describe "GET 'new'" do
@@ -57,7 +63,7 @@ describe LinksController do
       it { should assign_to(:link) }
       it { should redirect_to(:links) }
       it { should set_the_flash }
-      it { Link.criteria.id(@link.id).should be_zero }
+      it { Link.criteria.id(@link.id).count.should be_zero }
     end
   end
 end
