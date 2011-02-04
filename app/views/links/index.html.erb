@@ -1,5 +1,10 @@
-<p>All the links.</p>
+<h2>My Links</h2>
 
-<% @links.each do |link| %>
-  <%= link.url %>
-<% end %>
+<table id="links">
+  <% @links.each do |link| %>
+    <tr>
+      <td><%= link_to link.url %></td>
+      <td><%= link_to 'Delete', link, :method => :delete, :confirm => 'Delete this link?' %></td>
+    </tr>
+  <% end %>
+</table>
