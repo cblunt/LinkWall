@@ -1,9 +1,13 @@
 class LinksController < ApplicationController
-  before_filter :fetch_link, :only => :destroy
+  before_filter :fetch_link, :only => [:show, :destroy]
   respond_to :html
 
   def index
     respond_with(@links = current_user.links.all)
+  end
+
+  def show
+    respond_with(@link)
   end
 
   def new

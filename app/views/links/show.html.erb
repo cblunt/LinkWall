@@ -1,0 +1,13 @@
+<h2><%= link_to @link.url %></h2>
+
+<ol>
+  <% @link.comments.each do |comment| %>
+    <li>
+      <%= comment.body %>
+
+      <p class="meta">
+        Posted by <%= comment.user.name %>
+      </p>
+    </li>
+  <% end %>
+</ol>

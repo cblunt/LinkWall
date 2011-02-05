@@ -35,6 +35,19 @@ describe LinksController do
       end
     end
 
+    describe "GET 'show'" do
+        before do
+          @link = Factory(:link)
+
+          get :show, :id => @link.id
+        end
+
+        it { should assign_to(:link) }
+        it { should respond_with(:success) }
+        it { should render_template(:show) }
+        it { should_not set_the_flash }
+    end
+
     describe "GET 'new'" do
       before do
         get :new
