@@ -1,0 +1,7 @@
+<% if f.object.errors.any? %>
+  <ol id="error_messages">
+    <% f.object.errors.each do |key, msg| %>
+      <li><%= [f.object.class.name.humanize, key, msg].join(' ').humanize %>.</li>
+    <% end %>
+  </ol>
+<% end %>
