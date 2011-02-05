@@ -9,7 +9,25 @@
   <body>
     <header>
       <h1>LinkWall</h1> 
+
+      <div id="auth">
+        <% if current_user %>
+          Hi <%= current_user.name %>.
+          <%= link_to 'Sign out', signout_path %>
+        <% end %>
+      </div>
     </header>
+
+    <nav>
+      <ol>
+        <li><%= link_to 'Wall', root_path %></li>
+        <% if current_user %>
+          <li><%= link_to 'Add a link', new_link_path %></li>
+        <% else %>
+          <li>Sign in with <%= link_to 'Twitter', '/auth/twitter' %></li>
+        <% end %>
+      </ol>
+    </nav>
 
     <div id="page">
       <%= yield %>

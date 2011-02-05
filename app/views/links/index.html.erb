@@ -3,7 +3,7 @@
 <table id="links">
   <% @links.each do |link| %>
     <tr>
-      <td><%= link_to link.url %></td>
+      <td><%= link_to url_for(link.url) %></td>
       <td><%= link_to 'Delete', link, :method => :delete, :confirm => 'Delete this link?' %></td>
     </tr>
   <% end %>

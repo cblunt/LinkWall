@@ -1,9 +1,15 @@
 LinkWall::Application.routes.draw do
+  root :to => 'wall#index'
+
+  # OmniAuth
+  match '/auth/:provider/callback' => 'sessions#create'
+  match '/signout' => 'sessions#destroy', :as => :signout
+  
+  # REST
   resources :links
 
+  # Other routes
   get "wall/index", :as => :wall
-
-  root :to => 'wall#index'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

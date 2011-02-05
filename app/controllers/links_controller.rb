@@ -3,7 +3,7 @@ class LinksController < ApplicationController
   respond_to :html
 
   def index
-    respond_with(@links = Link.all)
+    respond_with(@links = current_user.links.all)
   end
 
   def new
@@ -11,7 +11,7 @@ class LinksController < ApplicationController
   end
 
   def create
-    @link = Link.new(params[:link])
+    @link = current_user.links.new(params[:link])
 
     flash[:notice] = 'Link added' if @link.save
     respond_with(@link, :location => links_url)
