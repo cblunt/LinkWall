@@ -13,7 +13,7 @@
       <div id="auth">
         <% if current_user %>
           Hi <%= current_user.name %>.
-        <% else %>
+          <%= link_to 'Sign out', signout_path %>
         <% end %>
       </div>
     </header>
