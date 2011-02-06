@@ -8,6 +8,7 @@ class User
 
   references_many :links, :dependent => :destroy
   references_many :comments, :dependent => :destroy
+  references_many :favourites, :dependent => :destroy
 
   validates :auth_provider, :presence => true
   validates :auth_uid, :presence => true
