@@ -20,4 +20,12 @@ class User
       user.name = auth['user_info']['name']
     end
   end
+
+  def favourite_ids
+    @favourite_ids ||= Favourite.where(:user_id => self.id).collect (&:link_id)
+  end
+
+  def favourite?(link)
+    favourite_ids.include?(link.id)
+  end
 end

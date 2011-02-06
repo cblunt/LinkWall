@@ -1,6 +1,15 @@
 <h2><%= link_to @link.url %></h2>
 
-<p><%= link_to 'Add a comment', new_link_comment_path(@link) %></p>
+<p>
+  <%= link_to 'Add a comment', new_link_comment_path(@link) %>
+  <% if current_user.favourite?(@link) %>
+    <%= link_to 'Unmark as favourite', favourite_path(@link), :method => :delete %>
+  <% else %>
+    <%= link_to 'Mark as favourite', mark_favourite_path(@link), :method => :post %>
+  <% end %>
+
+</p>
+
 
 <ol>
   <% @comments.each do |comment| %>
