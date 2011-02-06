@@ -22,7 +22,7 @@ class User
   end
 
   def favourite_ids
-    @favourite_ids ||= Favourite.where(:user_id => self.id).collect (&:link_id)
+    @favourite_ids ||= Favourite.where(:user_id => self.id).collect(&:link_id)
   end
 
   def favourite?(link)
