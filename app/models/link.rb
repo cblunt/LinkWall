@@ -11,6 +11,6 @@ class Link
   validates :url, :presence => true
 
   def favourite_for_user(user_id)
-    ! Favourites.first(:link_id => self.id, :user_id => user_id).limit(1).count.zero?
+    ! Favourite.where(:link_id => self.id, :user_id => user_id).limit(1).count.zero?
   end
 end

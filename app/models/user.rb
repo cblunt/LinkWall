@@ -13,7 +13,7 @@ class User
   validates :auth_provider, :presence => true
   validates :auth_uid, :presence => true
 
-  def self.create_with_twitter_auth(auth)
+  def self.create_with_auth(auth)
     create! do |user|
       user.auth_provider = auth['provider']
       user.auth_uid = auth['uid']
