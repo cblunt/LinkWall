@@ -12,14 +12,8 @@
 </table>
 
 <h3>My Comments</h3>
-<table id="comments">
+<ol id="comments">
   <% @comments.each do |comment| %>
-    <tr>
-      <td>
-        <%= comment.body %>
-        <br />
-        Posted on <%= link_to comment.link.url, comment.link %>.
-      </td>
-    </tr>
+    <%= render 'comments/comment', :comment => comment %>
   <% end %>
-</table>
+</ol>

@@ -1,0 +1,6 @@
+<li>
+  <%= simple_format(comment.body) %>
+  <p class="meta">
+    Posted on <%= link_to comment.link.url, comment.link %> at <%= l comment.created_at %>.
+  </p>
+</li>
