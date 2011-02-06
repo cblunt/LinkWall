@@ -4,7 +4,7 @@ class Link
 
   field :url, :type => String
 
-  references_many :comments
+  references_many :comments, :dependent => :destroy
   referenced_in :user
 
   validates :url, :presence => true
