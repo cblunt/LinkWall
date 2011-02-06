@@ -3,8 +3,7 @@
 <fieldset class="fields required">
   <ol>
     <li>
-      <%= f.label :url %>
-      <%= f.text_field :url %>
+      <%= f.text_area :body, :rows => 5, :cols => 40 %>
     </li>
   </ol>
 </fieldset>
@@ -14,7 +13,7 @@
     <li>
       <%= f.submit %>
       or
-      <%= link_to 'cancel', links_path %>
+      <%= link_to 'cancel', @link %>
     </li>
   </ol>
 </fieldset>

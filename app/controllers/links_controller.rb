@@ -1,9 +1,18 @@
 class LinksController < ApplicationController
-  before_filter :fetch_link, :only => :destroy
+  before_filter :fetch_link, :only => [:show, :destroy]
   respond_to :html
 
   def index
-    respond_with(@links = current_user.links.all)
+    @links = current_user.links.all
+    @comments = current_user.comments
+
+    respond_with(@links)
+  end
+
+  def show
+    @comments = @link.comments.desc(:created_at)
+
+    respond_with(@link)
   end
 
   def new

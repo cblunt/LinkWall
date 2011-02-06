@@ -6,7 +6,9 @@ LinkWall::Application.routes.draw do
   match '/signout' => 'sessions#destroy', :as => :signout
   
   # REST
-  resources :links
+  resources :links do
+    resources :comments
+  end
 
   # Other routes
   get "wall/index", :as => :wall

@@ -1,0 +1,14 @@
+<h2><%= link_to @link.url %></h2>
+
+<p><%= link_to 'Add a comment', new_link_comment_path(@link) %></p>
+
+<ol>
+  <% @comments.each do |comment| %>
+    <li>
+      <%= simple_format(comment.body) %>
+      <p class="meta">
+        Posted by <%= comment.user.name %> at <%= l comment.created_at %>.
+      </p>
+    </li>
+  <% end %>
+</ol>

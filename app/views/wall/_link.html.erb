@@ -1,3 +1,7 @@
 <li>
-  <%= link.url %>
+  <%= link_to link.url, link %>
+  <%= number_to_count(link.comments.count, 'comment') %>.
+  <% if current_user %>
+    <%= link_to 'Comment', new_link_comment_path(link) %>
+  <% end %>
 </li>

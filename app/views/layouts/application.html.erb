@@ -22,6 +22,7 @@
       <ol>
         <li><%= link_to 'Wall', root_path %></li>
         <% if current_user %>
+          <li><%= link_to 'My Wall', links_path %></li>
           <li><%= link_to 'Add a link', new_link_path %></li>
         <% else %>
           <li>Sign in with <%= link_to 'Twitter', '/auth/twitter' %></li>
@@ -30,6 +31,9 @@
     </nav>
 
     <div id="page">
+      <%= alert %>
+      <%= notice %>
+
       <%= yield %>
     </div>
   </body>

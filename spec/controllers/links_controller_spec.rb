@@ -20,6 +20,7 @@ describe LinksController do
         end
 
         it { should assign_to(:links) }
+        it { should assign_to(:comments) }
         it { should respond_with(:success) }
         it { should render_template(:index) }
         it { should_not set_the_flash }
@@ -33,6 +34,20 @@ describe LinksController do
         it { assigns(:links).should include @link }
         it { assigns(:links).should_not include @other_link }
       end
+    end
+
+    describe "GET 'show'" do
+        before do
+          @link = Factory(:link)
+
+          get :show, :id => @link.id
+        end
+
+        it { should assign_to(:link) }
+        it { should assign_to(:comments) }
+        it { should respond_with(:success) }
+        it { should render_template(:show) }
+        it { should_not set_the_flash }
     end
 
     describe "GET 'new'" do
