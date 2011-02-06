@@ -3,7 +3,7 @@ class Link
 
   field :url, :type => String
 
-  embeds_many :comments
+  references_many :comments
   referenced_in :user
 
   validates :url, :presence => true

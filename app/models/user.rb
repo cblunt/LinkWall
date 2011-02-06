@@ -6,6 +6,7 @@ class User
   field :auth_uid, :type => String
 
   references_many :links
+  references_many :comments
 
   validates :auth_provider, :presence => true
   validates :auth_uid, :presence => true

@@ -3,7 +3,10 @@ class LinksController < ApplicationController
   respond_to :html
 
   def index
-    respond_with(@links = current_user.links.all)
+    @links = current_user.links.all
+    @comments = current_user.comments
+
+    respond_with(@links)
   end
 
   def show

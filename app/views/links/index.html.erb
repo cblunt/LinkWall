@@ -1,10 +1,25 @@
-<h2>My Links</h2>
+<h2>My Wall</h2>
+
+<h3>My Links</h3>
 
 <table id="links">
   <% @links.each do |link| %>
     <tr>
-      <td><%= link_to url_for(link.url) %></td>
+      <td><%= link_to link.url, link %></td>
       <td><%= link_to 'Delete', link, :method => :delete, :confirm => 'Delete this link?' %></td>
+    </tr>
+  <% end %>
+</table>
+
+<h3>My Comments</h3>
+<table id="comments">
+  <% @comments.each do |comment| %>
+    <tr>
+      <td>
+        <%= comment.body %>
+        <br />
+        Posted on <%= link_to comment.link.url, comment.link %>.
+      </td>
     </tr>
   <% end %>
 </table>
