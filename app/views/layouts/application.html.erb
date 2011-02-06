@@ -25,7 +25,11 @@
           <li><%= link_to 'My Wall', links_path %></li>
           <li><%= link_to 'Add a link', new_link_path %></li>
         <% else %>
-          <li>Sign in with <%= link_to 'Twitter', '/auth/twitter' %></li>
+          <li>
+            Sign in with 
+            <%= link_to 'Twitter', '/auth/twitter' %>
+            <%= link_to 'Google', '/auth/google?openid_url=https://www.google.com/accounts/o8/id' %>
+          </li>
         <% end %>
       </ol>
     </nav>
