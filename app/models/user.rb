@@ -8,6 +8,7 @@ class User
 
   references_many :links, :dependent => :destroy
   references_many :comments, :dependent => :destroy
+  references_many :favourites, :dependent => :destroy
 
   validates :auth_provider, :presence => true
   validates :auth_uid, :presence => true
@@ -18,5 +19,13 @@ class User
       user.auth_uid = auth['uid']
       user.name = auth['user_info']['name']
     end
+  end
+
+  def favourite_ids
+    @favourite_ids ||= Favourite.where(:user_id => self.id).collect (&:link_id)
+  end
+
+  def favourite?(link)
+    favourite_ids.include?(link.id)
   end
 end

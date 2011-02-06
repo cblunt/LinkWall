@@ -4,6 +4,10 @@ LinkWall::Application.routes.draw do
   # OmniAuth
   match '/auth/:provider/callback' => 'sessions#create'
   match '/signout' => 'sessions#destroy', :as => :signout
+
+  # Favourites
+  post '/favourites/:link_id' => 'favourites#create', :as => :mark_favourite
+  delete '/favourites/:link_id' => 'favourites#destroy', :as => :favourite
   
   # REST
   resources :links do
