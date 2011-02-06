@@ -14,6 +14,11 @@
 <h3>My Comments</h3>
 <ol id="comments">
   <% @comments.each do |comment| %>
-    <%= render 'comments/comment', :comment => comment %>
+    <li>
+      <%= simple_format(comment.body) %>
+      <p class="meta">
+        Posted on <%= link_to comment.link.url, comment.link %> at <%= l comment.created_at %>.
+      </p>
+    </li>
   <% end %>
 </ol>

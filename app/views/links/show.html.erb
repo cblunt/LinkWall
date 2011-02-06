@@ -4,6 +4,11 @@
 
 <ol>
   <% @comments.each do |comment| %>
-    <%= render 'comments/comment', :comment => comment %>
+    <li>
+      <%= simple_format(comment.body) %>
+      <p class="meta">
+        Posted by <%= comment.user.name %> at <%= l comment.created_at %>.
+      </p>
+    </li>
   <% end %>
 </ol>
