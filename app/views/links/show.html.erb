@@ -3,7 +3,7 @@
 <p><%= link_to 'Add a comment', new_link_comment_path(@link) %></p>
 
 <ol>
-  <% @link.comments.each do |comment| %>
+  <% @comments.each do |comment| %>
     <li>
       <%= comment.body %>
 

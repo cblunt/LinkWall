@@ -10,6 +10,8 @@ class LinksController < ApplicationController
   end
 
   def show
+    @comments = @link.comments.desc(:created_at)
+
     respond_with(@link)
   end
 

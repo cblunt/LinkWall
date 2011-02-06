@@ -20,6 +20,7 @@ describe LinksController do
         end
 
         it { should assign_to(:links) }
+        it { should assign_to(:comments) }
         it { should respond_with(:success) }
         it { should render_template(:index) }
         it { should_not set_the_flash }
@@ -43,6 +44,7 @@ describe LinksController do
         end
 
         it { should assign_to(:link) }
+        it { should assign_to(:comments) }
         it { should respond_with(:success) }
         it { should render_template(:show) }
         it { should_not set_the_flash }
