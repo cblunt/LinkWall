@@ -22,3 +22,10 @@
     </li>
   <% end %>
 </ol>
+
+<h3>My Favourites</h3>
+<ol id="favourites">
+  <% @favourites.each do |favourite| %>
+    <%= render 'wall/link', :link => favourite %>
+  <% end %>
+</ol>

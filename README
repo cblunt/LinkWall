@@ -15,9 +15,11 @@
     bundle install
 4. Run specs and coverage:
     rake spec:rcov
-5. Run the local server:
+5. Generate documentation and visit {http://localhost:8808}
+    yardoc server
+6. Run the local server:
     rails server
-6. Open the app in your web browser at {http://localhost:3000/}
+7. Open the app in your web browser at {http://localhost:3000/}
 
 == About
 

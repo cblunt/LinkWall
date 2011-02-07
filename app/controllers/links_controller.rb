@@ -5,6 +5,7 @@ class LinksController < ApplicationController
   def index
     @links = current_user.links.all
     @comments = current_user.comments
+    @favourites = current_user.favourites.links
 
     respond_with(@links)
   end

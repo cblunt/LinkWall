@@ -26,10 +26,10 @@ describe User do
       @user.favourites.create!(:link => @link)
     end
 
-    it { @user.favourite_ids.should include(@link.id) }
+    it { @user.favourites.ids.should include(@link.id) }
     it { @user.favourite?(@link).should be_true }
 
-    it { @user.favourite_ids.should_not include(@other_link.id) }
+    it { @user.favourites.ids.should_not include(@other_link.id) }
     it { @user.favourite?(@other_link).should be_false }
   end
 end

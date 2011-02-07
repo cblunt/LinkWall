@@ -8,7 +8,15 @@ class User
 
   references_many :links, :dependent => :destroy
   references_many :comments, :dependent => :destroy
-  references_many :favourites, :dependent => :destroy
+  references_many :favourites, :dependent => :destroy do
+    def ids
+      @target.collect(&:link_id)
+    end
+
+    def links
+      @target.collect { |f| f.link }
+    end
+  end
 
   validates :auth_provider, :presence => true
   validates :auth_uid, :presence => true
@@ -21,11 +29,7 @@ class User
     end
   end
 
-  def favourite_ids
-    @favourite_ids ||= Favourite.where(:user_id => self.id).collect(&:link_id)
-  end
-
   def favourite?(link)
-    favourite_ids.include?(link.id)
+    self.favourites.ids.include?(link.id)
   end
 end
